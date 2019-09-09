@@ -1,44 +1,50 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: microservice-auth-web-deployment
-  namespace: '${NAMESPACE@microservice-config}'
+  name: ${DEPLOYMENT_WEB@microservice-auth-config}
+  namespace: ${NAMESPACE@microservice-config}
   labels:
-    app: microservice-auth-web-deployment
+    app: ${DEPLOYMENT_WEB@microservice-auth-config}
     moduleid: microservice-auth-web-service
     version: 1.70.1-master
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: microservice-auth-web-deployment
+      app: ${DEPLOYMENT_WEB@microservice-auth-config}
   template:
     metadata:
       labels:
-        app: microservice-auth-web-deployment
+        app: ${DEPLOYMENT_WEB@microservice-auth-config}
     spec:
       containers:
         -
           name: app
-          image: 'repoflow/microservice-auth-web-container:1.70.1-master'
+          image: repoflow/microservice-auth-web-container:1.70.1-master
           env:
             -
               name: HOST
               value: '${HOST@microservice-config}'
             -
-              name: PATH_APP
-              value: '${PATH_URL_APP@microservice-auth-config}'
+              name: BASE_ROUTE_APP
+              value: '${BASE_ROUTE_APP@microservice-auth-config}'
             -
-              name: PORT
-              value: '${PORT_APP@microservice-auth-config}'
+              name: INTERNAL_PORT_APP
+              value: '${INTERNAL_PORT_APP@microservice-auth-config}'
             -
-              name: URL_GRAPH
-              value: '${HOST@microservice-config}/${PATH_URL_GRAPH@microservice-auth-config}'
+              name: EXTERNAL_URL_GRAPH
+              value: '${EXTERNAL_URL_GRAPH@microservice-auth-config}'
             -
-              name: URL_EVENTS
-              value: '${HOST@microservice-config}/${PATH_URL_EVENTS@microservice-auth-config}'
+              name: EXTERNAL_URL_EVENTS
+              value: '${EXTERNAL_URL_EVENTS@microservice-auth-config}'
+            -
+              name: INTERNAL_URL_GRAPH
+              value: '${INTERNAL_URL_GRAPH@microservice-auth-config}'
+            -
+              name: INTERNAL_URL_EVENTS
+              value: '${INTERNAL_URL_EVENTS@microservice-auth-config}'
 
 
           ports:
             -
-              containerPort: ${PORT_APP@microservice-auth-config}
+              containerPort: ${INTERNAL_PORT_APP@microservice-auth-config}
