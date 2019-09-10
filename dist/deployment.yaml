@@ -39,10 +39,10 @@ spec:
               value: 'www.repoflow.com/auth/backend/events'
             -
               name: INTERNAL_URL_GRAPH
-              value: 'microservice-auth-graph-service.microservices-namespace:4000/auth/backend/graphql'
+              value: 'auth-graph-service.microservices-namespace:4000/auth/backend/graphql'
             -
               name: INTERNAL_URL_EVENTS
-              value: 'microservice-auth-graph-service.microservices-namespace:4000/auth/backend/events'
+              value: 'auth-graph-service.microservices-namespace:4000/auth/backend/events'
 
 
           ports:
