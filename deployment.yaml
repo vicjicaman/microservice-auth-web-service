@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ${DEPLOYMENT_WEB@microservice-auth-config}
-  namespace: ${NAMESPACE@microservice-config}
+  name: '${DEPLOYMENT_WEB@microservice-auth-config}'
+  namespace: '${NAMESPACE@microservice-config}'
   labels:
-    app: ${DEPLOYMENT_WEB@microservice-auth-config}
+    app: '${DEPLOYMENT_WEB@microservice-auth-config}'
     moduleid: microservice-auth-web-service
-    version: 1.70.1-master
+    version: 1.70.0-dev-auth-service-prod
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: ${DEPLOYMENT_WEB@microservice-auth-config}
+      app: '${DEPLOYMENT_WEB@microservice-auth-config}'
   template:
     metadata:
       labels:
-        app: ${DEPLOYMENT_WEB@microservice-auth-config}
+        app: '${DEPLOYMENT_WEB@microservice-auth-config}'
     spec:
       containers:
         -
           name: app
-          image: repoflow/microservice-auth-web-container:1.70.1-master
+          image: 'repoflow/microservice-auth-web-container:1.70.0-dev-auth-service-prod'
           env:
             -
               name: HOST
@@ -43,8 +43,6 @@ spec:
             -
               name: INTERNAL_URL_EVENTS
               value: '${INTERNAL_URL_EVENTS@microservice-auth-config}'
-
-
           ports:
             -
-              containerPort: ${INTERNAL_PORT_APP@microservice-auth-config}
+              containerPort: '${INTERNAL_PORT_APP@microservice-auth-config}'
