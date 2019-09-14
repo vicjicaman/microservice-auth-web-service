@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auth-web-deployment
-  namespace: microservices-namespace
+  name: 'auth-web-deployment'
+  namespace: 'microservices-namespace'
   labels:
-    app: auth-web-deployment
+    app: 'auth-web-deployment'
     moduleid: microservice-auth-web-service
-    version: 1.70.1-master
+    version: 1.70.0-dev-auth-service-prod
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: auth-web-deployment
+      app: 'auth-web-deployment'
   template:
     metadata:
       labels:
-        app: auth-web-deployment
+        app: 'auth-web-deployment'
     spec:
       containers:
         -
           name: app
-          image: repoflow/microservice-auth-web-container:1.70.1-master
+          image: 'repoflow/microservice-auth-web-container:1.70.0-dev-auth-service-prod'
           env:
             -
               name: HOST
@@ -43,8 +43,6 @@ spec:
             -
               name: INTERNAL_URL_EVENTS
               value: 'auth-graph-service.microservices-namespace:4000/auth/backend/events'
-
-
           ports:
             -
-              containerPort: 3000
+              containerPort: '3000'
