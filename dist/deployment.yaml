@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auth-web-deployment
-  namespace: microservices-namespace
+  name: 'auth-web-deployment'
+  namespace: 'microservices-namespace'
   labels:
-    app: auth-web-deployment
+    app: 'auth-web-deployment'
     moduleid: microservice-auth-web-service
-    version: 1.70.0-auth-base-cache-data-prod
+    version: 1.70.1-auth-base-cache-data-prod
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: auth-web-deployment
+      app: 'auth-web-deployment'
   template:
     metadata:
       labels:
-        app: auth-web-deployment
+        app: 'auth-web-deployment'
     spec:
       containers:
         -
@@ -24,19 +24,19 @@ spec:
           env:
             -
               name: HOST
-              value: www.repoflow.com
+              value: 'www.repoflow.com'
             -
               name: BASE_ROUTE_APP
-              value: /auth
+              value: '/auth'
             -
               name: INTERNAL_PORT_APP
-              value: '3000'
+              value: 3000
             -
               name: EXTERNAL_URL_GRAPH
-              value: www.repoflow.com/auth/backend/graphql
+              value: 'www.repoflow.com/auth/backend/graphql'
             -
               name: EXTERNAL_URL_EVENTS
-              value: www.repoflow.com/auth/backend/events
+              value: 'www.repoflow.com/auth/backend/events'
             -
               name: INTERNAL_URL_GRAPH
               value: 'auth-graph-service.microservices-namespace:4000/auth/backend/graphql'
