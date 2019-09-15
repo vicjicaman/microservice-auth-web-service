@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: 'auth-web-service'
-  namespace: 'microservices-namespace'
+  name: auth-web-service
+  namespace: microservices-namespace
   labels:
     moduleid: microservice-auth-web-service
-    version: 1.70.0-master
+    version: 1.70.1-master
 spec:
   type: NodePort
   selector:
-    app: 'auth-web-deployment'
+    app: auth-web-deployment
   ports:
     -
       name: microservice-auth-web-port
-      port: '3000'
+      port: 3000
