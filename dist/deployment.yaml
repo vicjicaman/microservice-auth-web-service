@@ -26,23 +26,17 @@ spec:
               name: HOST
               value: www.repoflow.com
             -
-              name: BASE_ROUTE_APP
+              name: AUTH_BASE_ROUTE_APP
               value: /auth
             -
-              name: INTERNAL_PORT_APP
+              name: AUTH_INTERNAL_PORT_APP
               value: '3000'
             -
-              name: EXTERNAL_URL_GRAPH
+              name: AUTH_EXTERNAL_URL_GRAPH
               value: www.repoflow.com/auth/backend/graphql
             -
-              name: EXTERNAL_URL_EVENTS
-              value: www.repoflow.com/auth/backend/events
-            -
-              name: INTERNAL_URL_GRAPH
+              name: AUTH_INTERNAL_URL_GRAPH
               value: 'auth-graph-service.microservices-namespace:4000/auth/backend/graphql'
-            -
-              name: INTERNAL_URL_EVENTS
-              value: 'auth-graph-service.microservices-namespace:4000/auth/backend/events'
           ports:
             -
               containerPort: 3000
