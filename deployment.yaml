@@ -6,7 +6,7 @@ metadata:
   labels:
     app: '${DEPLOYMENT_WEB@microservice-auth-config}'
     moduleid: microservice-auth-web-service
-    version: 1.70.4-auth-config-prod
+    version: 1.70.3-master
 spec:
   replicas: 2
   selector:
