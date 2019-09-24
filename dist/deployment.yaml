@@ -37,6 +37,9 @@ spec:
             -
               name: AUTH_INTERNAL_URL_GRAPH
               value: 'http://auth-graph-service.microservices-namespace:4000/auth/backend/graphql'
+            -
+              name: RESOURCE_BASE_ROUTE
+              value: /resources
           ports:
             -
               containerPort: 3000

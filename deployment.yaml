@@ -37,6 +37,9 @@ spec:
             -
               name: AUTH_INTERNAL_URL_GRAPH
               value: 'http://${INTERNAL_URL_GRAPH@microservice-auth-config}'
+            -
+              name: RESOURCE_BASE_ROUTE
+              value: '${BASE_ROUTE@microservice-resources-config}'
           ports:
             -
               containerPort: '${INTERNAL_PORT_APP@microservice-auth-config}'
