@@ -33,10 +33,10 @@ spec:
               value: '${INTERNAL_PORT_APP@microservice-auth-config}'
             -
               name: AUTH_EXTERNAL_URL_GRAPH
-              value: '${EXTERNAL_URL_GRAPH@microservice-auth-config}'
+              value: 'http://${EXTERNAL_URL_GRAPH@microservice-auth-config}'
             -
               name: AUTH_INTERNAL_URL_GRAPH
-              value: '${INTERNAL_URL_GRAPH@microservice-auth-config}'
+              value: 'http://${INTERNAL_URL_GRAPH@microservice-auth-config}'
           ports:
             -
               containerPort: '${INTERNAL_PORT_APP@microservice-auth-config}'

@@ -33,10 +33,10 @@ spec:
               value: '3000'
             -
               name: AUTH_EXTERNAL_URL_GRAPH
-              value: www.repoflow.com/auth/backend/graphql
+              value: 'http://www.repoflow.com/auth/backend/graphql'
             -
               name: AUTH_INTERNAL_URL_GRAPH
-              value: 'auth-graph-service.microservices-namespace:4000/auth/backend/graphql'
+              value: 'http://auth-graph-service.microservices-namespace:4000/auth/backend/graphql'
           ports:
             -
               containerPort: 3000
