@@ -6,7 +6,7 @@ metadata:
   labels:
     app: auth-web-deployment
     moduleid: microservice-auth-web-service
-    version: 1.70.3-master
+    version: 1.70.4-master
 spec:
   replicas: 2
   selector:
@@ -20,7 +20,7 @@ spec:
       containers:
         -
           name: app
-          image: 'repoflow/microservice-auth-web-container:1.70.2-master'
+          image: 'repoflow/microservice-auth-web-container:1.70.3-master'
           env:
             -
               name: HOST
@@ -33,10 +33,13 @@ spec:
               value: '3000'
             -
               name: AUTH_EXTERNAL_URL_GRAPH
-              value: www.repoflow.com/auth/backend/graphql
+              value: 'http://www.repoflow.com/auth/backend/graphql'
             -
               name: AUTH_INTERNAL_URL_GRAPH
-              value: 'auth-graph-service.microservices-namespace:4000/auth/backend/graphql'
+              value: 'http://auth-graph-service.microservices-namespace:4000/auth/backend/graphql'
+            -
+              name: RESOURCE_BASE_ROUTE
+              value: /resources
           ports:
             -
               containerPort: 3000
